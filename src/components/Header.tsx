@@ -1,8 +1,9 @@
 // import Web3 from 'web3';
 import { useWeb3React } from '@web3-react/core';
-
+import ReactDOM from 'react-dom';
 import { injector } from '../utils/connector';
 import {
+  Button,
   ConnectedAccountButtonWrap,
   ConnectedHeaderWrap,
   ContentWrap,
@@ -13,28 +14,18 @@ import {
 import { useEffect, useState } from 'react';
 import { web3 } from '../utils/instances';
 import { amountFromWei } from './AddLiquidity';
+import WalletModal from '../utils/UI/WalletModal';
 
 const Header = () => {
-  const [bnbBalance, setbnbBalane] = useState('');
+  const [bnbBalance, setbnbBalane] = useState<string>('');
+  const [showModal, setShowModal] = useState<boolean>(false);
 
   const { account, active, activate, deactivate } = useWeb3React();
-
-  console.log(account, 'account');
 
   const connect = async () => {
     try {
       await activate(injector);
       localStorage.setItem('isConnected', 'true');
-
-      console.log('connected');
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  const disconnect = async () => {
-    try {
-      await deactivate();
-      localStorage.setItem('isConnected', 'false');
     } catch (error) {
       console.log(error);
     }
@@ -82,12 +73,24 @@ const Header = () => {
           <ConnectedHeaderWrap>
             <ConnectedAccountButtonWrap>
               <span>{bnbBalance}</span>
-              <button> {formatArticleTitle(account)}</button>
+              <button onClick={() => setShowModal((prevState) => !prevState)}>
+                {' '}
+                {formatArticleTitle(account)}
+              </button>
             </ConnectedAccountButtonWrap>
           </ConnectedHeaderWrap>
         )}
-        {/* {active && <Button onClick={disconnect}>disconnect</Button>} */}
       </ContentWrap>
+
+      {showModal && (
+        <>
+          {ReactDOM.createPortal(
+            <WalletModal showModal={showModal} setShowModal={setShowModal} />,
+            // @ts-ignore
+            document.getElementById('wallet-overlay')
+          )}
+        </>
+      )}
     </StyledHeader>
   );
 };

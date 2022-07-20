@@ -81,6 +81,7 @@ export const Button = styled.button<iProps>`
   /* box-shadow: 1.4px 3px #886f6f; */
   transition: 0.3s;
   margin-top: ${(props) => (props.margin_top ? props.margin_top : '0px')};
+  cursor: pointer;
 
   &:hover {
     box-shadow: 0 0.5em 0.5em -0.4em #886f6f;
