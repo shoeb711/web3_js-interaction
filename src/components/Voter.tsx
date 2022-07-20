@@ -15,7 +15,7 @@ const Voter = () => {
   const candidateOnehandler = async () => {
     try {
       if (account && active && !voted) {
-        checkIfVoted();
+        // checkIfVoted();
         await voterContract.methods.vote(1).send({ from: account });
         // return res;
       } else {
@@ -29,7 +29,7 @@ const Voter = () => {
     try {
       if (account && active) {
         await voterContract.methods.vote(2).send({ from: account });
-        checkIfVoted();
+        // checkIfVoted();
         // return res;
       } else {
         alert('Please connect to Metamask');
@@ -55,19 +55,21 @@ const Voter = () => {
       });
     };
 
-    checkIfVoted();
     getCandidateCount();
   }, []);
 
-  const checkIfVoted = async () => {
-    try {
-      const tx = await voterContract.methods.voters(account).call();
-      setVoted(tx);
-      return;
-    } catch (error) {
-      console.error('getVoters error', error);
-    }
-  };
+  useEffect(() => {
+    const checkIfVoted = async () => {
+      try {
+        const tx = await voterContract.methods.voters(account).call();
+        setVoted(tx);
+        return;
+      } catch (error) {
+        console.error('getVoters error', error);
+      }
+    };
+    checkIfVoted();
+  }, [account]);
 
   console.log(voted, 'voted');
 
