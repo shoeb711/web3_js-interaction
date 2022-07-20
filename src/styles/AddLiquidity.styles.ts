@@ -82,7 +82,6 @@ export const TabButton = styled.button<any>`
   width: 82px;
   height: 41px;
   margin: 5px;
-  /* padding: 5px; */
   border-radius: 8px;
   transition: 0.3s;
   box-shadow: ${(props) =>
