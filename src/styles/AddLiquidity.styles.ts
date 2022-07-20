@@ -88,6 +88,7 @@ export const TabButton = styled.button<any>`
   box-shadow: ${(props) =>
     props.activeTab ? '0 0.5em 0.5em -0.4em #886f6f' : null};
 
+  cursor: pointer;
   &:hover {
     &:hover {
       box-shadow: 0 0.5em 0.5em -0.4em #886f6f;
