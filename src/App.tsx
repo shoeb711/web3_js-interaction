@@ -10,6 +10,7 @@ function App() {
     <>
       <Header />
       <Routes>
+        <Route path='/' element={<AddLiquidity />} />
         <Route path='/liquidity-pool' element={<AddLiquidity />} />
         <Route path='/voter' element={<Voter />} />
       </Routes>

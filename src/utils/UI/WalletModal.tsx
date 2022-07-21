@@ -1,7 +1,12 @@
 import { useWeb3React } from '@web3-react/core';
 import React from 'react';
 import { Button } from '../../styles/Header.styled';
-import { ModalContainer, ModalWrapper } from '../../styles/WalletModal';
+import {
+  CloseButton,
+  ModalContainer,
+  ModalWrapper,
+} from '../../styles/WalletModal';
+import Cross from '../Icons/Cross.svg';
 
 const WalletModal = ({ showModal, setShowModal }: any) => {
   const { account, active, deactivate } = useWeb3React();
@@ -21,6 +26,9 @@ const WalletModal = ({ showModal, setShowModal }: any) => {
   return (
     <ModalContainer show={showModal} onClick={() => setShowModal(false)}>
       <ModalWrapper>
+        <div>
+          <CloseButton src={Cross} alt='' onClick={() => setShowModal(false)} />
+        </div>
         <div>{account}</div>
         <div>
           {active && (

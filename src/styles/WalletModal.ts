@@ -18,14 +18,6 @@ export const ModalWrapper = styled.div<any>`
 `;
 
 export const ModalContainer = styled.div<any>`
-  /* position: fixed;
-  top: 43vh;
-  left: 36%;
-  background: #fff;
-  z-index: 100;
-  overflow: hidden;
-  border-radius: 10px; */
-
   display: ${(props) => (props.show ? 'block' : 'none')};
 
   position: fixed;
@@ -37,4 +29,11 @@ export const ModalContainer = styled.div<any>`
   background-color: rgba(0, 0, 0, 0.6);
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
+`;
+
+export const CloseButton = styled.img`
+  cursor: pointer;
+  position: absolute;
+  top: 6px;
+  right: 11px;
 `;
