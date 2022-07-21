@@ -32,16 +32,19 @@ export const AddLiquidityWrap = styled.div`
   font-weight: 200;
 
   label {
-    margin-left: 20px;
+    /* margin-left: 20px; */
+    display: flex;
+    align-items: center;
   }
 
   input {
     height: 45px;
     border-radius: 8px;
-    margin: 20px 40px;
+    margin: 20px;
     border: none;
     text-transform: uppercase;
     outline: none;
+    padding: 0 5px;
   }
   form {
     display: flex;
@@ -167,16 +170,19 @@ export const SwapWrap = styled.div`
   font-weight: 200;
 
   label {
-    margin-left: 20px;
+    /* margin-left: 20px; */
+    display: flex;
+    align-items: center;
   }
 
   input {
     height: 45px;
     border-radius: 8px;
-    margin: 20px 40px;
+    margin: 20px;
     border: none;
     text-transform: uppercase;
     outline: none;
+    padding: 0 5px;
   }
   form {
     display: flex;

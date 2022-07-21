@@ -43,6 +43,7 @@ export const ContentWrap = styled.div`
 
 export const StyledNavLink = styled(NavLink)`
   text-decoration: none;
+  color: black;
 `;
 
 export const ConnectedHeaderWrap = styled.div`

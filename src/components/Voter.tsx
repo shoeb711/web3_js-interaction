@@ -15,9 +15,8 @@ const Voter = () => {
   const candidateOnehandler = async () => {
     try {
       if (account && active && !voted) {
-        // checkIfVoted();
-        await voterContract.methods.vote(1).send({ from: account });
-        // return res;
+        const res = await voterContract.methods.vote(1).send({ from: account });
+        return res;
       } else {
         alert('Please connect to Metamask');
       }
@@ -28,9 +27,8 @@ const Voter = () => {
   const candidateTwohandler = async () => {
     try {
       if (account && active) {
-        await voterContract.methods.vote(2).send({ from: account });
-        // checkIfVoted();
-        // return res;
+        const res = await voterContract.methods.vote(2).send({ from: account });
+        return res;
       } else {
         alert('Please connect to Metamask');
       }
@@ -70,8 +68,6 @@ const Voter = () => {
     };
     checkIfVoted();
   }, [account]);
-
-  console.log(voted, 'voted');
 
   return (
     <VoterContainer>

@@ -1,11 +1,19 @@
-import React from 'react';
-import { Route, Router, Routes } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import AddLiquidity from './components/AddLiquidity';
 import Header from './components/Header';
 import Voter from './components/Voter';
 
 function App() {
+  useEffect(() => {
+    var iframes = document.querySelectorAll('iframe');
+    for (var i = 0; i < iframes.length; i++) {
+      // @ts-ignore
+      iframes[i].parentNode.removeChild(iframes[i]);
+    }
+  }, []);
+
   return (
     <>
       <Header />
