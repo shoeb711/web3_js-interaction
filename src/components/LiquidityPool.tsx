@@ -31,7 +31,7 @@ export const amountFromWei = (amount: string) => {
   return web3.utils.fromWei(amount, 'ether');
 };
 
-const AddLiquidity: React.FC = () => {
+const LiquidityPool: React.FC = () => {
   const [enteredBusd, setEnteredBusd] = useState('');
   const [enteredBust, setEnteredBust] = useState('');
 
@@ -220,7 +220,7 @@ const AddLiquidity: React.FC = () => {
   };
 
   useEffect(() => {
-    setCurrentNav('swap');
+    setCurrentNav('add');
 
     const checkLiquidity = async () => {
       const busd_bust_reserve = await pairContract.methods.getReserves().call();
@@ -649,4 +649,4 @@ const AddLiquidity: React.FC = () => {
   );
 };
 
-export default AddLiquidity;
+export default LiquidityPool;

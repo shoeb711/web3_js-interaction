@@ -13,7 +13,7 @@ import {
 } from '../styles/Header.styled';
 import { useEffect, useState } from 'react';
 import { web3 } from '../utils/instances';
-import { amountFromWei } from './AddLiquidity';
+import { amountFromWei } from './LiquidityPool';
 import WalletModal from '../utils/UI/WalletModal';
 
 const Header = () => {
